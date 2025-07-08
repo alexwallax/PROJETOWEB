@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
+from .models import Todo
+
 # listar as tarefas cadastradas
 def todo_list(request):
-    nome = "Alex"
-    return render(request, "todos/todo_list.html", {"nome": nome})
+    todos = Todo.objects.all
+    return render(request, "todos/todo_list.html", {"todos": todos})
